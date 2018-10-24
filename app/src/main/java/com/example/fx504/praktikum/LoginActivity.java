@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (et_username.getText().toString().equals(nama) &&
                         et_password.getText().toString().equals(password)){
                     sharePref.setDataInt(SharePref.KEY_VALUE,1);
-                    Intent intent = new Intent(LoginActivity.this, DisplayActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 }else {
                     Toast.makeText(LoginActivity.this, "Input Salah", Toast.LENGTH_SHORT).show();

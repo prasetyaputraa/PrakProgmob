@@ -30,9 +30,11 @@ public class DisplayActivity extends AppCompatActivity {
 
         String nama     = sharePref.getDataString(SharePref.KEY_NAME);
         String email    = sharePref.getDataString(SharePref.KEY_EMAIL);
+        String phone    = sharePref.getDataString(SharePref.KEY_PHONE);
 
         tv_nama.setText(""+nama);
         tv_email.setText(""+email);
+        tv_phone.setText(""+phone);
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
