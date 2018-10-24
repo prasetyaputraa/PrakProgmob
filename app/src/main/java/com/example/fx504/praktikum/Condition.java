@@ -10,12 +10,12 @@ public class Condition extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        SharePref sharePref = new SharePref();
+        SharePref sharePref = new SharePref(this);
         int myVal = sharePref.getDataInt(SharePref.KEY_VALUE);
 
         Intent intent;
         if (myVal==1){
-            intent = new Intent(Condition.this, DisplayActivity.class);
+            intent = new Intent(Condition.this, MainActivity.class);
             startActivity(intent);
         }else {
             intent = new Intent(Condition.this, LoginActivity.class);

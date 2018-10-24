@@ -12,6 +12,7 @@ public class DisplayActivity extends AppCompatActivity {
 
     TextView tv_nama;
     TextView tv_email;
+    TextView tv_phone;
     Button   btn_logout;
 
 
@@ -22,9 +23,10 @@ public class DisplayActivity extends AppCompatActivity {
 
         tv_nama    = findViewById(R.id.tv_nama);
         tv_email   = findViewById(R.id.tv_email);
+        tv_phone   = findViewById(R.id.tv_phone);
         btn_logout = findViewById(R.id.btn_logout);
 
-        final SharePref sharePref = new SharePref();
+        final SharePref sharePref = new SharePref(this);
 
         String nama     = sharePref.getDataString(SharePref.KEY_NAME);
         String email    = sharePref.getDataString(SharePref.KEY_EMAIL);

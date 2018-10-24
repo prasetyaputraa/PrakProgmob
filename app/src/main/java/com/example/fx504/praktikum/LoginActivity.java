@@ -14,11 +14,14 @@ public class LoginActivity extends AppCompatActivity {
     EditText et_password;
     Button btn_login;
     Button btn_register;
+    SharePref sharePref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
+
+         sharePref = new SharePref(this);
 
         et_username  = findViewById(R.id.et_username);
         et_password  = findViewById(R.id.et_password);
@@ -35,9 +38,6 @@ public class LoginActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                SharePref sharePref = new SharePref();
-
                 String nama     = sharePref.getDataString(SharePref.KEY_NAME);
                 String password = sharePref.getDataString(SharePref.KEY_PASS);
                 if (et_username.getText().toString().equals(nama) &&
