@@ -6,16 +6,21 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.WindowManager;
+
+import com.jaeger.library.StatusBarUtil;
 
 public class MainActivity extends AppCompatActivity {
+
+    BottomNavigationView btn_navView;
+    Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView btn_navView = findViewById(R.id.btn_navView);
-
+        btn_navView = findViewById(R.id.btn_navView);
         btn_navView.setOnNavigationItemSelectedListener(navListener);
     }
 
@@ -23,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                    Fragment fragment = null;
+                     fragment = new FragmentHome();
                     switch (menuItem.getItemId()){
                         case R.id.nav_home:
                             fragment = new FragmentHome();
@@ -42,5 +47,6 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             };
+
 
 }

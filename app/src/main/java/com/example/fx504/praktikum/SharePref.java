@@ -28,7 +28,7 @@ public class SharePref{
     public String getDataString(String key){
         return sharedPreferences.getString(key,"");
     }
-    public int getDataInt(String key){
-        return sharedPreferences.getInt(key,0);
+    public int getDataInt(String key, int defValue){
+        return sharedPreferences.getInt(key,defValue);
     }
 }

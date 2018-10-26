@@ -5,27 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical"
-    android:background="@color/colorPrimary">
+    android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/frag_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/btn_navView">
-
     </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/btn_navView"
-        android:paddingTop="6dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="0dp"
-        app:itemIconSize="28dp"
+        app:itemIconSize="25dp"
         android:background="?android:attr/windowBackground"
         app:menu="@menu/bottom_menu"/>
 

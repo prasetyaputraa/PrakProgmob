@@ -3,6 +3,7 @@ package com.example.fx504.praktikum;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (et_username.getText().toString().equals(nama) &&
                         et_password.getText().toString().equals(password)){
                     sharePref.setDataInt(SharePref.KEY_VALUE,1);
+                    Log.d("InputVal","Value Login"+sharePref.getDataInt(SharePref.KEY_VALUE,0));
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 }else {

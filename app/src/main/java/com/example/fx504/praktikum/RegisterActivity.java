@@ -39,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
                 sharePref.setDataString(SharePref.KEY_PASS,  ""+et_password.getText().toString());
                 sharePref.setDataString(SharePref.KEY_PHONE, ""+ et_phone.getText().toString());
                 sharePref.setDataString(SharePref.KEY_EMAIL, ""+et_email.getText().toString());
-                sharePref.setDataInt(SharePref.KEY_VALUE,0);
+                sharePref.setDataInt(SharePref.KEY_VALUE,1);
 
 
                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
