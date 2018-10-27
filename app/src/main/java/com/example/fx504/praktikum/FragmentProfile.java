@@ -11,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.fx504.praktikum.LoginActivity;
+import com.example.fx504.praktikum.R;
+import com.example.fx504.praktikum.SharePref;
+
 public class FragmentProfile extends Fragment {
 
     TextView tv_nama;

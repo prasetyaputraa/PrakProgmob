@@ -6,14 +6,12 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.WindowManager;
-
-import com.jaeger.library.StatusBarUtil;
 
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView btn_navView;
     Fragment fragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +31,6 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.nav_home:
                             fragment = new FragmentHome();
                             break;
-                        case R.id.nav_novel:
-                            fragment = new FragmentNovel();
-                            break;
                         case R.id.nav_fav:
                             fragment = new FragmentFavorites();
                             break;
@@ -47,6 +42,5 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             };
-
 
 }

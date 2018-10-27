@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
                         et_password.getText().toString().equals(password)){
                     sharePref.setDataInt(SharePref.KEY_VALUE,1);
                     Log.d("InputVal","Value Login"+sharePref.getDataInt(SharePref.KEY_VALUE,0));
+
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 }else {

@@ -1,164 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:fitsSystemWindows="true"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <LinearLayout
+    android:orientation="vertical">
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        //New Novel
-        <ViewFlipper
-            android:id="@+id/vf_novel"
-            android:layout_width="match_parent"
-            android:layout_height="225dp"
-            android:background="@drawable/cat_eye">
-        </ViewFlipper>
-
-        //Fav Novel
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        >
         <LinearLayout
-            android:id="@+id/layout_Fav"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-            <RelativeLayout
-                android:layout_marginTop="25dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:gravity="center"
-                    android:layout_marginLeft="15dp"
-                    android:text="Favorite"
-                    android:textSize="18sp" />
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="15dp"
-                    android:src="@drawable/ic_chevron_right" />
-            </RelativeLayout>
-            <!--Favorit Novel Preview-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="190dp"
-                android:orientation="vertical">
-                <GridLayout
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:background="#fff"
-                    android:columnCount="3"
-                    android:rowCount="1"
-                    android:columnOrderPreserved="false"
-                    android:alignmentMode="alignMargins">
-                    <android.support.v7.widget.CardView
-                        android:layout_columnWeight="1"
-                        android:layout_rowWeight="1"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_margin="10dp"
-                        app:cardElevation="8dp"
-                        app:cardCornerRadius="8dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_vertical|center_horizontal"
-                            android:gravity="center"
-                            android:orientation="vertical"
-                            android:weightSum="4">
-                            <ImageView
-                                android:layout_weight="3"
-                                android:layout_height="0dp"
-                                android:layout_width="match_parent"
-                                android:src="@drawable/n_aullido"
-                                android:scaleType="fitXY"
-                                />
-                            <TextView
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:text="Aullido"
-                                android:gravity="center"/>
-                        </LinearLayout>
-                    </android.support.v7.widget.CardView>
-                    <android.support.v7.widget.CardView
-                        android:layout_columnWeight="1"
-                        android:layout_rowWeight="1"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_margin="10dp"
-                        app:cardElevation="8dp"
-                        app:cardCornerRadius="8dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_vertical|center_horizontal"
-                            android:gravity="center"
-                            android:orientation="vertical"
-                            android:weightSum="4">
-                            <ImageView
-                                android:layout_weight="3"
-                                android:layout_height="0dp"
-                                android:layout_width="match_parent"
-                                android:src="@drawable/n_enceladus"
-                                android:scaleType="fitXY"
-                                />
-                            <TextView
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:text="Enceladus"
-                                android:gravity="center"/>
-                        </LinearLayout>
-                    </android.support.v7.widget.CardView>
-                    <android.support.v7.widget.CardView
-                        android:layout_columnWeight="1"
-                        android:layout_rowWeight="1"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_margin="10dp"
-                        app:cardElevation="8dp"
-                        app:cardCornerRadius="8dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_vertical|center_horizontal"
-                            android:gravity="center"
-                            android:orientation="vertical"
-                            android:weightSum="4">
-                            <ImageView
-                                android:layout_weight="3"
-                                android:layout_height="0dp"
-                                android:layout_width="match_parent"
-                                android:src="@drawable/n_true_lie"
-                                android:scaleType="fitXY"
-                                />
-                            <TextView
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:text="True Lie"
-                                android:gravity="center"/>
-                        </LinearLayout>
-                    </android.support.v7.widget.CardView>
-                </GridLayout>
-            </LinearLayout>
-        </LinearLayout>
 
-        //Find Genre Novel
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:cardBackgroundColor="@color/colorPrimary"
-            android:layout_marginHorizontal="-10dp"
-            >
+            //New Novel
+            <ViewFlipper
+                android:id="@+id/vf_novel"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:background="@drawable/cat_eye">
+            </ViewFlipper>
+
+            //Fav Novel
+            <LinearLayout
+                android:id="@+id/layout_Fav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_marginTop="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:text="Favorite"
+                        android:textSize="18sp" />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="15dp"
+                        android:src="@drawable/ic_chevron_right" />
+                </RelativeLayout>
+                <!--Favorit Novel Preview-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:orientation="vertical">
+                    <GridLayout
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:background="#fff"
+                        android:columnCount="3"
+                        android:rowCount="1"
+                        android:columnOrderPreserved="false"
+                        android:alignmentMode="alignMargins">
+                        <android.support.v7.widget.CardView
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="10dp"
+                            app:cardElevation="8dp"
+                            app:cardCornerRadius="8dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical|center_horizontal"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+                                <ImageView
+                                    android:layout_weight="3"
+                                    android:layout_height="0dp"
+                                    android:layout_width="match_parent"
+                                    android:src="@drawable/n_aullido"
+                                    android:scaleType="fitXY"
+                                    />
+                                <TextView
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:text="Aullido"
+                                    android:gravity="center"/>
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                        <android.support.v7.widget.CardView
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="10dp"
+                            app:cardElevation="8dp"
+                            app:cardCornerRadius="8dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical|center_horizontal"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+                                <ImageView
+                                    android:layout_weight="3"
+                                    android:layout_height="0dp"
+                                    android:layout_width="match_parent"
+                                    android:src="@drawable/n_searchlove"
+                                    android:scaleType="fitXY"
+                                    />
+                                <TextView
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:text="Enceladus"
+                                    android:gravity="center"/>
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                        <android.support.v7.widget.CardView
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="10dp"
+                            app:cardElevation="8dp"
+                            app:cardCornerRadius="8dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical|center_horizontal"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+                                <ImageView
+                                    android:layout_weight="3"
+                                    android:layout_height="0dp"
+                                    android:layout_width="match_parent"
+                                    android:src="@drawable/n_true_lie"
+                                    android:scaleType="fitXY"
+                                    />
+                                <TextView
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:text="True Lie"
+                                    android:gravity="center"/>
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                    </GridLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            //Find Genre Novel
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="@color/colorPrimary"
+                android:layout_marginHorizontal="-10dp"
+                >
                 <ScrollView
                     android:paddingHorizontal="15dp"
                     android:layout_width="wrap_content"
@@ -175,30 +182,47 @@
                             android:layout_height="60dp"
                             android:gravity="center_vertical">
                             <ImageView
+                                android:id="@+id/iv_all"
                                 android:layout_width="45dp"
                                 android:layout_height="45dp"
+                                android:src="@drawable/ic_event"
                                 android:padding="10dp"
                                 android:layout_marginHorizontal="10dp"
                                 android:background="@drawable/bg_genre"
                                 android:backgroundTint="@color/colorgenre"
-                                android:src="@drawable/gr_action"/>
+                                />
                             <ImageView
+                                android:id="@+id/iv_action"
                                 android:layout_width="45dp"
                                 android:layout_height="45dp"
+                                android:padding="10dp"
+                                android:src="@drawable/gr_action"
+                                android:layout_marginHorizontal="10dp"
+                                android:background="@drawable/bg_genre"
+                                android:backgroundTint="@color/colorgenre"
+                                />
+                            <ImageView
+                                android:id="@+id/iv_romance"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:src="@drawable/gr_romace"
                                 android:padding="10dp"
                                 android:layout_marginHorizontal="10dp"
                                 android:background="@drawable/bg_genre"
                                 android:backgroundTint="@color/colorgenre"
-                                android:src="@drawable/gr_romace"/>
+                                />
                             <ImageView
+                                android:id="@+id/iv_fantasy"
                                 android:layout_width="45dp"
                                 android:layout_height="45dp"
+                                android:src="@drawable/gr_fantas"
                                 android:padding="10dp"
                                 android:layout_marginHorizontal="10dp"
                                 android:background="@drawable/bg_genre"
                                 android:backgroundTint="@color/colorgenre"
-                                android:src="@drawable/gr_fantas"/>
+                                />
                             <ImageView
+                                android:id="@+id/iv_sport"
                                 android:layout_width="45dp"
                                 android:layout_height="45dp"
                                 android:padding="10dp"
@@ -207,14 +231,17 @@
                                 android:backgroundTint="@color/colorgenre"
                                 android:src="@drawable/gr_sport"/>
                             <ImageView
+                                android:id="@+id/iv_comedy"
                                 android:layout_width="45dp"
                                 android:layout_height="45dp"
+                                android:src="@drawable/gr_comedy"
                                 android:padding="10dp"
                                 android:layout_marginHorizontal="10dp"
                                 android:background="@drawable/bg_genre"
                                 android:backgroundTint="@color/colorgenre"
-                                android:src="@drawable/gr_comedy"/>
+                                />
                             <ImageView
+                                android:id="@+id/iv_history"
                                 android:layout_width="45dp"
                                 android:layout_height="45dp"
                                 android:padding="10dp"
@@ -223,6 +250,7 @@
                                 android:backgroundTint="@color/colorgenre"
                                 android:src="@drawable/gr_history"/>
                             <ImageView
+                                android:id="@+id/iv_horror"
                                 android:layout_width="45dp"
                                 android:layout_height="45dp"
                                 android:padding="10dp"
@@ -230,56 +258,257 @@
                                 android:background="@drawable/bg_genre"
                                 android:backgroundTint="@color/colorgenre"
                                 android:src="@drawable/gr_horror"/>
+                            <ImageView
+                                android:id="@+id/iv_scifi"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:padding="10dp"
+                                android:layout_marginHorizontal="10dp"
+                                android:background="@drawable/bg_genre"
+                                android:backgroundTint="@color/colorgenre"
+                                android:src="@drawable/gr_scifi"/>
                         </LinearLayout>
                     </HorizontalScrollView>
                 </ScrollView>
-        </android.support.v7.widget.CardView>
+            </android.support.v7.widget.CardView>
 
-        //Recent Update
-        <android.support.v7.widget.CardView
-            android:layout_marginTop="13dp"
-            android:layout_marginBottom="-15dp"
-            android:layout_marginHorizontal="2dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="8dp">
-            <LinearLayout
+            //Recent Update
+            <android.support.v7.widget.CardView
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="-15dp"
+                android:layout_marginHorizontal="2dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
+                app:cardCornerRadius="8dp">
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="#fff"
-                    android:text="Recent Update"
-                    android:textSize="18sp"
-                    android:background="@color/colorUpdate"
-                    android:layout_marginBottom="2dp"
-                    />
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/n_aullido"/>
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingBottom="5dp"
+                        android:textColor="#fff"
+                        android:text="Recent Update"
+                        android:textSize="18sp"
+                        android:background="@color/colorUpdate"
+                        android:layout_marginBottom="2dp"
+                        />
+                    //heightnya jangan diganti :)
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="410dp"
+                        android:orientation="horizontal">
+                        //Bagian yg mungkin akan dirubah biar bisa njalan
+                        <GridLayout
+                            android:layout_height="match_parent"
+                            android:layout_width="match_parent"
+                            android:background="#fff"
+                            android:columnCount="3"
+                            android:rowCount="3"
+                            android:columnOrderPreserved="false"
+                            android:alignmentMode="alignMargins">
 
-                <View
-                    android:background="@color/colorView"
-                    android:layout_marginVertical="8dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"/>
-                //footer
-                <LinearLayout
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@color/colorView"
-                    >
+                            <android.support.v7.widget.CardView
+                                android:layout_columnWeight="1"
+                                android:layout_rowWeight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_margin="10dp"
+                                app:cardElevation="8dp"
+                                app:cardCornerRadius="8dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical|center_horizontal"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:weightSum="4">
+                                    <ImageView
+                                        android:layout_weight="3"
+                                        android:layout_height="0dp"
+                                        android:layout_width="match_parent"
+                                        android:src="@drawable/n_aullido"
+                                        android:scaleType="fitXY"
+                                        />
+                                    <TextView
+                                        android:layout_weight="1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:text="Aullido"
+                                        android:gravity="center"/>
+                                </LinearLayout>
+                            </android.support.v7.widget.CardView>
+                            <android.support.v7.widget.CardView
+                                android:layout_columnWeight="1"
+                                android:layout_rowWeight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_margin="10dp"
+                                app:cardElevation="8dp"
+                                app:cardCornerRadius="8dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical|center_horizontal"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:weightSum="4">
+                                    <ImageView
+                                        android:layout_weight="3"
+                                        android:layout_height="0dp"
+                                        android:layout_width="match_parent"
+                                        android:src="@drawable/n_enceladus"
+                                        android:scaleType="fitXY"
+                                        />
+                                    <TextView
+                                        android:layout_weight="1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:text="Enceladus"
+                                        android:gravity="center"/>
+                                </LinearLayout>
+                            </android.support.v7.widget.CardView>
+                            <android.support.v7.widget.CardView
+                                android:layout_columnWeight="1"
+                                android:layout_rowWeight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_margin="10dp"
+                                app:cardElevation="8dp"
+                                app:cardCornerRadius="8dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical|center_horizontal"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:weightSum="4">
+                                    <ImageView
+                                        android:layout_weight="3"
+                                        android:layout_height="0dp"
+                                        android:layout_width="match_parent"
+                                        android:src="@drawable/n_true_lie"
+                                        android:scaleType="fitXY"
+                                        />
+                                    <TextView
+                                        android:layout_weight="1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:text="True Lie"
+                                        android:gravity="center"/>
+                                </LinearLayout>
+                            </android.support.v7.widget.CardView>
+                            <android.support.v7.widget.CardView
+                                android:layout_columnWeight="1"
+                                android:layout_rowWeight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_margin="10dp"
+                                app:cardElevation="8dp"
+                                app:cardCornerRadius="8dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical|center_horizontal"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:weightSum="4">
+                                    <ImageView
+                                        android:layout_weight="3"
+                                        android:layout_height="0dp"
+                                        android:layout_width="match_parent"
+                                        android:src="@drawable/n_aullido"
+                                        android:scaleType="fitXY"
+                                        />
+                                    <TextView
+                                        android:layout_weight="1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:text="Aullido"
+                                        android:gravity="center"/>
+                                </LinearLayout>
+                            </android.support.v7.widget.CardView>
+                            <android.support.v7.widget.CardView
+                                android:layout_columnWeight="1"
+                                android:layout_rowWeight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_margin="10dp"
+                                app:cardElevation="8dp"
+                                app:cardCornerRadius="8dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical|center_horizontal"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:weightSum="4">
+                                    <ImageView
+                                        android:layout_weight="3"
+                                        android:layout_height="0dp"
+                                        android:layout_width="match_parent"
+                                        android:src="@drawable/n_enceladus"
+                                        android:scaleType="fitXY"
+                                        />
+                                    <TextView
+                                        android:layout_weight="1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:text="Enceladus"
+                                        android:gravity="center"/>
+                                </LinearLayout>
+                            </android.support.v7.widget.CardView>
+                            <android.support.v7.widget.CardView
+                                android:layout_columnWeight="1"
+                                android:layout_rowWeight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_margin="10dp"
+                                app:cardElevation="8dp"
+                                app:cardCornerRadius="8dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical|center_horizontal"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:weightSum="4">
+                                    <ImageView
+                                        android:layout_weight="3"
+                                        android:layout_height="0dp"
+                                        android:layout_width="match_parent"
+                                        android:src="@drawable/n_true_lie"
+                                        android:scaleType="fitXY"
+                                        />
+                                    <TextView
+                                        android:layout_weight="1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:text="True Lie"
+                                        android:gravity="center"/>
+                                </LinearLayout>
+                            </android.support.v7.widget.CardView>
 
+
+                        </GridLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:background="@color/colorView"
+                        android:layout_marginVertical="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"/>
+                    //footer
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@color/colorView"/>
                 </LinearLayout>
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
-    </LinearLayout>
-</ScrollView>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

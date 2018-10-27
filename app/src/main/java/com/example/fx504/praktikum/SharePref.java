@@ -5,12 +5,12 @@ import android.content.SharedPreferences;
 
 public class SharePref{
 
-    final static String SP_NAME    = "sharePref";
-    final static String KEY_NAME   = "user_name";
-    final static String KEY_PASS   = "user_pass";
-    final static String KEY_EMAIL  = "user_email";
-    final static String KEY_PHONE  = "user_phone";
-    final static String KEY_VALUE  = "0";
+    public final static String SP_NAME    = "sharePref";
+    public final static String KEY_NAME   = "user_name";
+    public final static String KEY_PASS   = "user_pass";
+    public final static String KEY_EMAIL  = "user_email";
+    public final static String KEY_PHONE  = "user_phone";
+    public final static String KEY_VALUE  = "0";
     private SharedPreferences sharedPreferences;
 
     public SharePref(Context context) {

@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.fx504.praktikum.R;
+
 public class FragmentFavorites extends Fragment {
 
 
