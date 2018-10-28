@@ -5,6 +5,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +15,12 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FragmentHome extends Fragment {
 
-    FragmentTransaction fragmentTransaction;
+
 
     ViewFlipper vf_novel;
     LinearLayout layout_fav;
@@ -24,6 +29,10 @@ public class FragmentHome extends Fragment {
     ImageView iv_all, iv_action, iv_comedy, iv_scifi, iv_history;
     ImageView iv_romance, iv_sport, iv_horror, iv_fantasy;
 
+    List<Novel> myNovel;
+    RecyclerView recyclerView;
+    RecyclerViewAdapter viewAdapter;
+
 
     @Nullable
     @Override
@@ -31,10 +40,6 @@ public class FragmentHome extends Fragment {
         View frameView = inflater.inflate(R.layout.fragment_home,container,false);
 
         int novel_cover[] = {R.drawable.cat_eye, R.drawable.dead_in_deep_water, R.drawable.strange_winds};
-
-
-
-
 
         //View Promosi Novel Baru
 
@@ -58,7 +63,6 @@ public class FragmentHome extends Fragment {
         iv_horror  = frameView.findViewById(R.id.iv_horror);
         iv_scifi   = frameView.findViewById(R.id.iv_scifi);
 
-
         setFungsiGenre(iv_all,"All Novel");
         setFungsiGenre(iv_action,"Genre Action");
         setFungsiGenre(iv_romance,"Genre Romance");
@@ -68,6 +72,26 @@ public class FragmentHome extends Fragment {
         setFungsiGenre(iv_history,"Genre History");
         setFungsiGenre(iv_horror,"Genre Horror");
         setFungsiGenre(iv_scifi,"Genre Sci Fi");
+
+        //Update Novel
+        myNovel = new ArrayList<>();
+
+        myNovel.add(new Novel("Search Love", "Romance", "About someone who always find another to fix hem",R.drawable.n_searchlove));
+        myNovel.add(new Novel("Aullido", "Horror", "Description this Novel",R.drawable.n_aullido));
+        myNovel.add(new Novel("True Lie", "Drama", "Description this Novel",R.drawable.n_true_lie));
+        myNovel.add(new Novel("Enceladus", "Sci Fi", "Description this Novel",R.drawable.n_enceladus));
+        myNovel.add(new Novel("Search Love 2", "Romance", "About someone who always find another to fix hem",R.drawable.n_searchlove));
+        myNovel.add(new Novel("Aullido 2", "Horror", "Description this Novel",R.drawable.n_aullido));
+        myNovel.add(new Novel("True Lie 2", "Drama", "Description this Novel",R.drawable.n_true_lie));
+        myNovel.add(new Novel("Enceladus 2", "Sci Fi", "Description this Novel",R.drawable.n_enceladus)); myNovel.add(new Novel("Search Love 2", "Romance", "About someone who always find another to fix hem",R.drawable.n_searchlove));
+        myNovel.add(new Novel("Aullido 2", "Horror", "Description this Novel",R.drawable.n_aullido));
+        myNovel.add(new Novel("True Lie 2", "Drama", "Description this Novel",R.drawable.n_true_lie));
+        myNovel.add(new Novel("Enceladus 2", "Sci Fi", "Description this Novel",R.drawable.n_enceladus));
+
+        recyclerView = frameView.findViewById(R.id.recyclerview_novel);
+        viewAdapter = new RecyclerViewAdapter(getContext(), myNovel);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
+        recyclerView.setAdapter(viewAdapter);
 
         return frameView;
     }
