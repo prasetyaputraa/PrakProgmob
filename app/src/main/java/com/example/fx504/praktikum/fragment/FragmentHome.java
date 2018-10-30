@@ -1,4 +1,4 @@
-package com.example.fx504.praktikum;
+package com.example.fx504.praktikum.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,6 +14,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
+
+import com.example.fx504.praktikum.Novel;
+import com.example.fx504.praktikum.R;
+import com.example.fx504.praktikum.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,17 +80,13 @@ public class FragmentHome extends Fragment {
         //Update Novel
         myNovel = new ArrayList<>();
 
-        myNovel.add(new Novel("Search Love", "Romance", "About someone who always find another to fix hem",R.drawable.n_searchlove));
-        myNovel.add(new Novel("Aullido", "Horror", "Description this Novel",R.drawable.n_aullido));
-        myNovel.add(new Novel("True Lie", "Drama", "Description this Novel",R.drawable.n_true_lie));
-        myNovel.add(new Novel("Enceladus", "Sci Fi", "Description this Novel",R.drawable.n_enceladus));
-        myNovel.add(new Novel("Search Love 2", "Romance", "About someone who always find another to fix hem",R.drawable.n_searchlove));
-        myNovel.add(new Novel("Aullido 2", "Horror", "Description this Novel",R.drawable.n_aullido));
-        myNovel.add(new Novel("True Lie 2", "Drama", "Description this Novel",R.drawable.n_true_lie));
-        myNovel.add(new Novel("Enceladus 2", "Sci Fi", "Description this Novel",R.drawable.n_enceladus)); myNovel.add(new Novel("Search Love 2", "Romance", "About someone who always find another to fix hem",R.drawable.n_searchlove));
-        myNovel.add(new Novel("Aullido 2", "Horror", "Description this Novel",R.drawable.n_aullido));
-        myNovel.add(new Novel("True Lie 2", "Drama", "Description this Novel",R.drawable.n_true_lie));
-        myNovel.add(new Novel("Enceladus 2", "Sci Fi", "Description this Novel",R.drawable.n_enceladus));
+        for (int i =0; i<6; i++){
+            myNovel.add(new Novel("Search Love", "Romance", "About someone who always find another to fix hem",R.drawable.n_searchlove));
+            myNovel.add(new Novel("Aullido", "Horror", "Description this Novel",R.drawable.n_aullido));
+            myNovel.add(new Novel("True Lie", "Drama", "Description this Novel",R.drawable.n_true_lie));
+        }
+
+
 
         recyclerView = frameView.findViewById(R.id.recyclerview_novel);
         viewAdapter = new RecyclerViewAdapter(getContext(), myNovel);

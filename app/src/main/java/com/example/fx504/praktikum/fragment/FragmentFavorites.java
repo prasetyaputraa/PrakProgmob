@@ -1,4 +1,4 @@
-package com.example.fx504.praktikum;
+package com.example.fx504.praktikum.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

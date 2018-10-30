@@ -1,4 +1,4 @@
-package com.example.fx504.praktikum;
+package com.example.fx504.praktikum.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -56,4 +56,5 @@ public class FragmentProfile extends Fragment {
         return frameView;
 
     }
+    
 }

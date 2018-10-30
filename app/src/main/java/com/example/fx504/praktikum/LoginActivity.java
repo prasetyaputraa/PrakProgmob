@@ -1,6 +1,9 @@
 package com.example.fx504.praktikum;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -39,10 +42,13 @@ public class LoginActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nama     = sharePref.getDataString(SharePref.KEY_NAME);
+
+                String user = et_username.getText().toString();
+                String pass = et_password.getText().toString();
+                String name     = sharePref.getDataString(SharePref.KEY_NAME);
                 String password = sharePref.getDataString(SharePref.KEY_PASS);
-                if (et_username.getText().toString().equals(nama) &&
-                        et_password.getText().toString().equals(password)){
+
+                if (name.equals(user) && password.equals(pass)){
                     sharePref.setDataInt(SharePref.KEY_VALUE,1);
                     Log.d("InputVal","Value Login"+sharePref.getDataInt(SharePref.KEY_VALUE,0));
 
@@ -63,6 +69,21 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Really Exit?")
+                .setMessage("Are you sure you want to exit?")
+                .setNegativeButton(android.R.string.no, null)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        LoginActivity.super.onBackPressed();
+                        finishAffinity();
+                        System.exit(0);
+                    }
+                }).create().show();
     }
 
 

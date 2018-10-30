@@ -83,14 +83,14 @@
                                     android:layout_weight="3"
                                     android:layout_height="0dp"
                                     android:layout_width="match_parent"
-                                    android:src="@drawable/n_aullido"
+                                    android:src="@drawable/n_afterlie"
                                     android:scaleType="fitXY"
                                     />
                                 <TextView
                                     android:layout_weight="1"
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
-                                    android:text="Aullido"
+                                    android:text="After the Lie"
                                     android:gravity="center"/>
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
@@ -143,14 +143,14 @@
                                     android:layout_weight="3"
                                     android:layout_height="0dp"
                                     android:layout_width="match_parent"
-                                    android:src="@drawable/n_true_lie"
+                                    android:src="@drawable/n_onelastwish"
                                     android:scaleType="fitXY"
                                     />
                                 <TextView
                                     android:layout_weight="1"
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
-                                    android:text="True Lie"
+                                    android:text="One Lash Wish"
                                     android:gravity="center"/>
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
