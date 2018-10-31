@@ -1,6 +1,5 @@
 package com.example.fx504.praktikum;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -11,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.fx504.praktikum.model.SharePref;
 
 public class LoginActivity extends AppCompatActivity {
 

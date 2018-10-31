@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.fx504.praktikum.LoginActivity;
 import com.example.fx504.praktikum.R;
-import com.example.fx504.praktikum.SharePref;
+import com.example.fx504.praktikum.model.SharePref;
 
 public class FragmentProfile extends Fragment {
 
@@ -56,5 +56,21 @@ public class FragmentProfile extends Fragment {
         return frameView;
 
     }
-    
+
+//    @Override
+//    public void onBackPressed() {
+//        new AlertDialog.Builder(getContext())
+//                .setTitle("Really Exit?")
+//                .setMessage("Are you sure you want to exit?")
+//                .setNegativeButton(android.R.string.no, null)
+//                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface arg0, int arg1) {
+//                        FragmentProfile.super.onBackPressed();
+//                        finishAffinity();
+//                        System.exit(0);
+//                    }
+//                }).create().show();
+//    }
+
+
 }

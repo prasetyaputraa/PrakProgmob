@@ -1,4 +1,4 @@
-package com.example.fx504.praktikum;
+package com.example.fx504.praktikum.model;
 
 import android.content.Context;
 import android.content.SharedPreferences;

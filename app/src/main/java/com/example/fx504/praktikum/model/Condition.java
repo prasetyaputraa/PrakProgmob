@@ -1,9 +1,12 @@
-package com.example.fx504.praktikum;
+package com.example.fx504.praktikum.model;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+
+import com.example.fx504.praktikum.FullScreenActivity;
+import com.example.fx504.praktikum.MainActivity;
 
 public class Condition extends Activity {
 
