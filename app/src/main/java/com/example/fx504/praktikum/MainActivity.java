@@ -1,75 +1,52 @@
 package com.example.fx504.praktikum;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.view.MenuItem;
+
+import com.example.fx504.praktikum.fragment.FragmentFavorites;
+import com.example.fx504.praktikum.fragment.FragmentHome;
+import com.example.fx504.praktikum.fragment.FragmentProfile;
 
 public class MainActivity extends AppCompatActivity {
 
-    final String BIO_USER   = "shared_preferences";
-    final String KEY_NAME   = "user_name";
-    final String KEY_PASS   = "user_pass";
-    final String KEY_VALUE  = "0";
+    BottomNavigationView btn_navView;
+    Fragment fragment;
 
-
-    EditText et_username;
-    EditText et_password;
-    Button btn_login;
-    Button btn_register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        et_username  = findViewById(R.id.et_username);
-        et_password  = findViewById(R.id.et_password);
-
-        btn_login    = findViewById(R.id.btn_login);
-        btn_register = findViewById(R.id.btn_register);
-
-        setBtn_login();
-        setBtn_register();
-
-
+        btn_navView = findViewById(R.id.btn_navView);
+        btn_navView.setOnNavigationItemSelectedListener(navListener);
+        fragment = new FragmentHome();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frag_layout, fragment).commit();
     }
 
-    public void setBtn_login() {
-        btn_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences sp = getSharedPreferences(BIO_USER,MODE_PRIVATE);
-                SharedPreferences.Editor editor = sp.edit();
-
-                String nama     = sp.getString(KEY_NAME,"");
-                String password = sp.getString(KEY_PASS,"");
-                if (et_username.getText().toString().equals(nama) &&
-                        et_password.getText().toString().equals(password)){
-                    editor.putInt(KEY_VALUE,1);
-                    editor.apply();
-                    Intent intent = new Intent(MainActivity.this, DisplayActivity.class);
-                    startActivity(intent);
-                }else {
-                    Toast.makeText(MainActivity.this, "Input Salah", Toast.LENGTH_SHORT).show();
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                     fragment = new FragmentHome();
+                    switch (menuItem.getItemId()){
+                        case R.id.nav_home:
+                            fragment = new FragmentHome();
+                            break;
+                        case R.id.nav_fav:
+                            fragment = new FragmentFavorites();
+                            break;
+                        case R.id.nav_profile:
+                            fragment = new FragmentProfile();
+                            break;
+                    }
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frag_layout, fragment).commit();
+                    return true;
                 }
-            }
-        });
-    }
-
-    public void setBtn_register(){
-        btn_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
+            };
 
 }

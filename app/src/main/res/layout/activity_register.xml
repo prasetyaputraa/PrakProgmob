@@ -49,6 +49,23 @@
         android:inputType="textPassword"
         android:hint="Password"
         />
+
+    <EditText
+        android:id="@+id/et_phone"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_icon"
+        android:drawableLeft="@drawable/ic_phone"
+        android:drawablePadding="13dp"
+        android:paddingLeft="9dp"
+        android:paddingRight="10dp"
+        android:paddingVertical="5dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dp"
+        android:inputType="number"
+        android:hint="Password"
+        />
+
     <EditText
         android:id="@+id/et_email"
         android:layout_width="250dp"
@@ -61,7 +78,7 @@
         android:paddingVertical="5dp"
         android:layout_gravity="center"
         android:layout_marginBottom="15dp"
-        android:inputType="textEmailAddress"
+        android:inputType="textEmailSubject"
         android:hint="Email Address"
         />
 
