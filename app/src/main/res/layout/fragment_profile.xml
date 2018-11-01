@@ -20,7 +20,8 @@
             <RelativeLayout
                 android:layout_width="130dp"
                 android:layout_height="130dp"
-                android:background="@drawable/bg_profile">
+                android:background="@drawable/bg_profile"
+                >
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/img_profile"
                     android:layout_width="120dp"
@@ -28,17 +29,23 @@
                     android:layout_centerInParent="true"
                     android:foregroundGravity="center"
                     android:src="@drawable/n_afterlie" />
-
-                <Button
-                    android:id="@+id/btn_editImg"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                <LinearLayout
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
                     android:layout_alignEnd="@+id/img_profile"
                     android:layout_alignBottom="@+id/img_profile"
                     android:background="@drawable/bg_profile"
-                    android:text="+"
-                    android:fontFamily="monospace"
-                    android:textSize="20sp"/>
+                    >
+                    <Button
+                        android:id="@+id/btn_editImg"
+                        android:layout_margin="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ic_create"
+                        />
+                </LinearLayout>
             </RelativeLayout>
 
         </LinearLayout>
@@ -176,7 +183,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:paddingHorizontal="30dp"
         android:text="Log Out"
+        android:textColor="#fff"
+        android:backgroundTint="@color/colorPrimary"
         android:layout_gravity="center"/>
 
 </LinearLayout>

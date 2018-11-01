@@ -79,7 +79,7 @@ public class FragmentHome extends Fragment {
         //Update Novel
         myNovel = new ArrayList<>();
 
-        for (int i =0; i<6; i++){
+        for (int i =0; i<3; i++){
             myNovel.add(new Novel("Search Love", "Romance", "About someone who always find another to fix hem",R.drawable.n_searchlove));
             myNovel.add(new Novel("Aullido", "Horror", "Description this Novel",R.drawable.n_aullido));
             myNovel.add(new Novel("True Lie", "Drama", "Description this Novel",R.drawable.n_true_lie));
