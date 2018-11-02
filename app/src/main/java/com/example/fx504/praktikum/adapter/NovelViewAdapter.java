@@ -14,12 +14,12 @@ import com.example.fx504.praktikum.R;
 
 import java.util.List;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
+public class NovelViewAdapter extends RecyclerView.Adapter<NovelViewAdapter.MyViewHolder> {
 
     private Context context;
     private List<Novel> novelList;
 
-    public RecyclerViewAdapter(Context context, List<Novel> myNovel) {
+    public NovelViewAdapter(Context context, List<Novel> myNovel) {
         this.context = context;
         this.novelList = myNovel;
     }
@@ -61,12 +61,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public MyViewHolder(View itemView){
             super(itemView);
 
-            iv_novel_img = itemView.findViewById(R.id.iv_novel_img);
+            iv_novel_img   = itemView.findViewById(R.id.iv_novel_img);
             tv_novel_title = itemView.findViewById(R.id.tv_novel_title);
             tv_novel_genre = itemView.findViewById(R.id.tv_novel_genre);
-
-
-
 
         }
     }

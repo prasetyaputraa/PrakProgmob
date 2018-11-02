@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.fx504.praktikum.fragment.FragHome;
 import com.example.fx504.praktikum.fragment.FragmentFavorites;
 import com.example.fx504.praktikum.fragment.FragmentHome;
 import com.example.fx504.praktikum.fragment.FragmentProfile;
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn_navView = findViewById(R.id.btn_navView);
         btn_navView.setOnNavigationItemSelectedListener(navListener);
-        fragment = new FragmentHome();
+        fragment = new FragHome();
         getSupportFragmentManager().beginTransaction().replace(R.id.frag_layout, fragment).commit();
     }
 
@@ -32,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                     fragment = new FragmentHome();
+                     fragment = null;
                     switch (menuItem.getItemId()){
                         case R.id.nav_home:
-                            fragment = new FragmentHome();
+                            fragment = new FragHome();
                             break;
                         case R.id.nav_fav:
                             fragment = new FragmentFavorites();

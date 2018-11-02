@@ -16,7 +16,7 @@ import android.widget.ViewFlipper;
 
 import com.example.fx504.praktikum.model.Novel;
 import com.example.fx504.praktikum.R;
-import com.example.fx504.praktikum.adapter.RecyclerViewAdapter;
+import com.example.fx504.praktikum.adapter.NovelViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,9 +32,10 @@ public class FragmentHome extends Fragment {
     ImageView iv_all, iv_action, iv_comedy, iv_scifi, iv_history;
     ImageView iv_romance, iv_sport, iv_horror, iv_fantasy;
 
+    //View fav
     List<Novel> myNovel;
     RecyclerView recyclerView;
-    RecyclerViewAdapter viewAdapter;
+    NovelViewAdapter viewAdapter;
 
 
     @Nullable
@@ -88,7 +89,7 @@ public class FragmentHome extends Fragment {
 
 
         recyclerView = frameView.findViewById(R.id.recyclerview_novel);
-        viewAdapter = new RecyclerViewAdapter(getContext(), myNovel);
+        viewAdapter = new NovelViewAdapter(getContext(), myNovel);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
         recyclerView.setAdapter(viewAdapter);
 

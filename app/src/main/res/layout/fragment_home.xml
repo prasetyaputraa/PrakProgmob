@@ -291,8 +291,8 @@
                         android:background="@color/colorUpdate"
                         android:layout_marginBottom="2dp"
                         />
-                        //Bagian yg mungkin akan dirubah biar bisa njalan
-                        <android.support.v7.widget.RecyclerView
+
+                          <android.support.v7.widget.RecyclerView
                             android:id="@+id/recyclerview_novel"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"

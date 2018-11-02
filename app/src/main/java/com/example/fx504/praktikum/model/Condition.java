@@ -22,9 +22,11 @@ public class Condition extends Activity {
 
             intent = new Intent(Condition.this, MainActivity.class);
             startActivity(intent);
+
         }else {
             intent = new Intent(Condition.this, FullScreenActivity.class);
             startActivity(intent);
         }
+        finish();
     }
 }
