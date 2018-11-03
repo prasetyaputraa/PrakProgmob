@@ -5,95 +5,53 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import com.example.fx504.praktikum.model.Novel;
 import com.example.fx504.praktikum.R;
+import com.example.fx504.praktikum.adapter.GenreAdapter;
 import com.example.fx504.praktikum.adapter.NovelViewAdapter;
+import com.example.fx504.praktikum.model.Genre;
+import com.example.fx504.praktikum.model.Novel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentHome extends Fragment {
 
-
-
     ViewFlipper vf_novel;
-    LinearLayout layout_fav;
-
-
-    ImageView iv_all, iv_action, iv_comedy, iv_scifi, iv_history;
-    ImageView iv_romance, iv_sport, iv_horror, iv_fantasy;
-
-    //View fav
     List<Novel> myNovel;
-    RecyclerView recyclerView;
-    NovelViewAdapter viewAdapter;
+    List<Genre> myGenre;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View frameView = inflater.inflate(R.layout.fragment_home,container,false);
+        View view = inflater.inflate(R.layout.fragment_home,container,false);
 
+
+        vf_novel   = view.findViewById(R.id.vf_novel);
         int novel_cover[] = {R.drawable.cat_eye, R.drawable.dead_in_deep_water, R.drawable.strange_winds};
-
-        //View Promosi Novel Baru
-
-        vf_novel   = frameView.findViewById(R.id.vf_novel);
         for (int i =0; i<novel_cover.length;i++){
             flipperImage(novel_cover[i]);
         }
 
-        // View Favorit Novel --> cuma uji coba, belum sesuai
-        layout_fav = frameView.findViewById(R.id.layout_Fav);
-        goToFragFav();
+        // Favorite Novel
+        setFav(view);
 
-        //Genre Novel
-        iv_all     = frameView.findViewById(R.id.iv_all);
-        iv_action  = frameView.findViewById(R.id.iv_action);
-        iv_romance = frameView.findViewById(R.id.iv_romance);
-        iv_fantasy = frameView.findViewById(R.id.iv_fantasy);
-        iv_sport   = frameView.findViewById(R.id.iv_sport);
-        iv_comedy  = frameView.findViewById(R.id.iv_comedy);
-        iv_history = frameView.findViewById(R.id.iv_history);
-        iv_horror  = frameView.findViewById(R.id.iv_horror);
-        iv_scifi   = frameView.findViewById(R.id.iv_scifi);
+        // Genre Novel
+        setMyGenre(view);
 
-        setFungsiGenre(iv_all,"All Novel");
-        setFungsiGenre(iv_action,"Genre Action");
-        setFungsiGenre(iv_romance,"Genre Romance");
-        setFungsiGenre(iv_fantasy,"Genre Fantasy");
-        setFungsiGenre(iv_sport,"Genre Sport");
-        setFungsiGenre(iv_comedy,"Genre Comedy");
-        setFungsiGenre(iv_history,"Genre History");
-        setFungsiGenre(iv_horror,"Genre Horror");
-        setFungsiGenre(iv_scifi,"Genre Sci Fi");
-
-        //Update Novel
-        myNovel = new ArrayList<>();
-
-        for (int i =0; i<3; i++){
-            myNovel.add(new Novel("Search Love", "Romance", "About someone who always find another to fix hem",R.drawable.n_searchlove));
-            myNovel.add(new Novel("Aullido", "Horror", "Description this Novel",R.drawable.n_aullido));
-            myNovel.add(new Novel("True Lie", "Drama", "Description this Novel",R.drawable.n_true_lie));
-        }
+        // Update Novel
+        setNovelUpdate(view);
 
 
-
-        recyclerView = frameView.findViewById(R.id.recyclerview_novel);
-        viewAdapter = new NovelViewAdapter(getContext(), myNovel);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
-        recyclerView.setAdapter(viewAdapter);
-
-        return frameView;
+        return view;
     }
 
     public void flipperImage(int img){
@@ -108,27 +66,67 @@ public class FragmentHome extends Fragment {
         vf_novel.setInAnimation(getContext(), android.R.anim.slide_in_left);
         vf_novel.setOutAnimation(getContext(), android.R.anim.slide_out_right);
     }
+    
+    public void setFav(View v){
+        RecyclerView recyclerView;
+        NovelViewAdapter novelAdapter;
 
+        myNovel = new ArrayList<>();
 
-    public void goToFragFav(){
-        layout_fav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //ini error gak tau kenapa, tapi sebelumnya mau
-//                fragmentTransaction.replace(R.id.frag_layout, new FragmentFavorites()).commit();
-                Toast.makeText(getContext(), "Sabar, error", Toast.LENGTH_SHORT).show();
-            }
-        });
+        for (int i =0; i<3; i++){
+            myNovel.add(new Novel("Search Love", "Romance", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                    R.drawable.n_searchlove));
+            myNovel.add(new Novel("Aullido", "Horror", "Description this Novel"
+                    ,R.drawable.n_aullido));
+        }
+        recyclerView = v.findViewById(R.id.rc_fav);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        novelAdapter = new NovelViewAdapter(getContext(), myNovel);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(novelAdapter);
     }
 
-    public void setFungsiGenre(ImageView button, final String value){
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), ""+value, Toast.LENGTH_SHORT).show();
-            }
-        });
+    public void setMyGenre(View v){
+        RecyclerView recyclerView;
+        GenreAdapter genreAdapter;
+
+        myGenre = new ArrayList<>();
+
+        myGenre.add(new Genre("Action", R.drawable.gr_action));
+        myGenre.add(new Genre("Comedy", R.drawable.gr_comedy));
+        myGenre.add(new Genre("Fantasy", R.drawable.gr_fantas));
+        myGenre.add(new Genre("History", R.drawable.gr_history));
+        myGenre.add(new Genre("Horror", R.drawable.gr_horror));
+        myGenre.add(new Genre("Romance", R.drawable.gr_romace));
+        myGenre.add(new Genre("Sci fi", R.drawable.gr_scifi));
+        myGenre.add(new Genre("Sport", R.drawable.gr_sport));
+
+        recyclerView = v.findViewById(R.id.rc_genre);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        genreAdapter = new GenreAdapter(getContext(),myGenre);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(genreAdapter);
+
     }
 
+    public void setNovelUpdate(View v){
+        RecyclerView recyclerView;
+        NovelViewAdapter novelAdapter;
+
+        myNovel = new ArrayList<>();
+
+        for (int i =0; i<6; i++){
+            myNovel.add(new Novel("Search Love", "Romance", "About someone who always find another to fix hem",R.drawable.n_searchlove));
+            myNovel.add(new Novel("Aullido", "Horror", "Description this Novel",R.drawable.n_aullido));
+        }
+        recyclerView = v.findViewById(R.id.rc_novelRilis);
+
+
+        novelAdapter = new NovelViewAdapter(getContext(), myNovel);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(),3);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(novelAdapter);
+    }
 
 }

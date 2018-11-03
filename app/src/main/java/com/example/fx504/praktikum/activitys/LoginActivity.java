@@ -1,4 +1,4 @@
-package com.example.fx504.praktikum;
+package com.example.fx504.praktikum.activitys;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.fx504.praktikum.R;
 import com.example.fx504.praktikum.model.SharePref;
 
 public class LoginActivity extends AppCompatActivity {

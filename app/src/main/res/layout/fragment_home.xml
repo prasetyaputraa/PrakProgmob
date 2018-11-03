@@ -1,313 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<android.support.v4.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--New Novel-->
+        <ViewFlipper
+            android:id="@+id/vf_novel"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="@drawable/cat_eye">
+        </ViewFlipper>
+
+        <!--Favorite-->
         <LinearLayout
+            android:id="@+id/layout_Fav"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            //New Novel
-            <ViewFlipper
-                android:id="@+id/vf_novel"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:background="@drawable/cat_eye">
-            </ViewFlipper>
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginVertical="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:text="Favorite"
+                    android:textSize="18sp" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/ic_chevron_right" />
+            </RelativeLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rc_fav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"/>
+        </LinearLayout>
 
-            <!--Fav Novel-->
+        <!--Genre-->
+
+        <LinearLayout
+            android:layout_marginTop="13dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/colorPrimary">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rc_genre"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="horizontal"/>
+        </LinearLayout>
+
+        <!--Update Novel-->
+
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="-15dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp">
             <LinearLayout
-                android:id="@+id/layout_Fav"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="420dp"
                 android:orientation="vertical">
-                <RelativeLayout
-                    android:layout_marginTop="25dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:gravity="center"
-                        android:layout_marginLeft="15dp"
-                        android:text="Favorite"
-                        android:textSize="18sp" />
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="15dp"
-                        android:src="@drawable/ic_chevron_right" />
-                </RelativeLayout>
-                <!--Favorit Novel Preview-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="190dp"
-                    android:orientation="vertical">
-                    <GridLayout
-                        android:layout_height="match_parent"
-                        android:layout_width="match_parent"
-                        android:background="#fff"
-                        android:columnCount="3"
-                        android:rowCount="1"
-                        android:columnOrderPreserved="false"
-                        android:alignmentMode="alignMargins">
-                        <android.support.v7.widget.CardView
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_margin="10dp"
-                            app:cardElevation="8dp"
-                            app:cardCornerRadius="8dp">
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center_vertical|center_horizontal"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:weightSum="4">
-                                <ImageView
-                                    android:layout_weight="3"
-                                    android:layout_height="0dp"
-                                    android:layout_width="match_parent"
-                                    android:src="@drawable/n_afterlie"
-                                    android:scaleType="fitXY"
-                                    />
-                                <TextView
-                                    android:layout_weight="1"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0dp"
-                                    android:text="After the Lie"
-                                    android:gravity="center"/>
-                            </LinearLayout>
-                        </android.support.v7.widget.CardView>
-                        <android.support.v7.widget.CardView
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_margin="10dp"
-                            app:cardElevation="8dp"
-                            app:cardCornerRadius="8dp">
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center_vertical|center_horizontal"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:weightSum="4">
-                                <ImageView
-                                    android:layout_weight="3"
-                                    android:layout_height="0dp"
-                                    android:layout_width="match_parent"
-                                    android:src="@drawable/n_searchlove"
-                                    android:scaleType="fitXY"
-                                    />
-                                <TextView
-                                    android:layout_weight="1"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0dp"
-                                    android:text="Enceladus"
-                                    android:gravity="center"/>
-                            </LinearLayout>
-                        </android.support.v7.widget.CardView>
-                        <android.support.v7.widget.CardView
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_margin="10dp"
-                            app:cardElevation="8dp"
-                            app:cardCornerRadius="8dp">
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center_vertical|center_horizontal"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:weightSum="4">
-                                <ImageView
-                                    android:layout_weight="3"
-                                    android:layout_height="0dp"
-                                    android:layout_width="match_parent"
-                                    android:src="@drawable/n_onelastwish"
-                                    android:scaleType="fitXY"
-                                    />
-                                <TextView
-                                    android:layout_weight="1"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0dp"
-                                    android:text="One Lash Wish"
-                                    android:gravity="center"/>
-                            </LinearLayout>
-                        </android.support.v7.widget.CardView>
-                    </GridLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            //Find Genre Novel
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:cardBackgroundColor="@color/colorPrimary"
-                android:layout_marginHorizontal="-10dp"
-                >
-                <!--<ScrollView-->
-                    <!--android:paddingHorizontal="15dp"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--&gt;-->
-                    <HorizontalScrollView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:scrollbars="none"
-                        android:background="?android:attr/windowBackground">
-                        <LinearLayout
-                            android:layout_marginVertical="5dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="60dp"
-                            android:gravity="center_vertical">
-                            <ImageView
-                                android:id="@+id/iv_all"
-                                android:layout_width="45dp"
-                                android:layout_height="45dp"
-                                android:src="@drawable/ic_event"
-                                android:padding="10dp"
-                                android:layout_marginHorizontal="10dp"
-                                android:background="@drawable/bg_genre"
-                                android:backgroundTint="@color/colorgenre"
-                                />
-                            <ImageView
-                                android:id="@+id/iv_action"
-                                android:layout_width="45dp"
-                                android:layout_height="45dp"
-                                android:padding="10dp"
-                                android:src="@drawable/gr_action"
-                                android:layout_marginHorizontal="10dp"
-                                android:background="@drawable/bg_genre"
-                                android:backgroundTint="@color/colorgenre"
-                                />
-                            <ImageView
-                                android:id="@+id/iv_romance"
-                                android:layout_width="45dp"
-                                android:layout_height="45dp"
-                                android:src="@drawable/gr_romace"
-                                android:padding="10dp"
-                                android:layout_marginHorizontal="10dp"
-                                android:background="@drawable/bg_genre"
-                                android:backgroundTint="@color/colorgenre"
-                                />
-                            <ImageView
-                                android:id="@+id/iv_fantasy"
-                                android:layout_width="45dp"
-                                android:layout_height="45dp"
-                                android:src="@drawable/gr_fantas"
-                                android:padding="10dp"
-                                android:layout_marginHorizontal="10dp"
-                                android:background="@drawable/bg_genre"
-                                android:backgroundTint="@color/colorgenre"
-                                />
-                            <ImageView
-                                android:id="@+id/iv_sport"
-                                android:layout_width="45dp"
-                                android:layout_height="45dp"
-                                android:padding="10dp"
-                                android:layout_marginHorizontal="10dp"
-                                android:background="@drawable/bg_genre"
-                                android:backgroundTint="@color/colorgenre"
-                                android:src="@drawable/gr_sport"/>
-                            <ImageView
-                                android:id="@+id/iv_comedy"
-                                android:layout_width="45dp"
-                                android:layout_height="45dp"
-                                android:src="@drawable/gr_comedy"
-                                android:padding="10dp"
-                                android:layout_marginHorizontal="10dp"
-                                android:background="@drawable/bg_genre"
-                                android:backgroundTint="@color/colorgenre"
-                                />
-                            <ImageView
-                                android:id="@+id/iv_history"
-                                android:layout_width="45dp"
-                                android:layout_height="45dp"
-                                android:padding="10dp"
-                                android:layout_marginHorizontal="10dp"
-                                android:background="@drawable/bg_genre"
-                                android:backgroundTint="@color/colorgenre"
-                                android:src="@drawable/gr_history"/>
-                            <ImageView
-                                android:id="@+id/iv_horror"
-                                android:layout_width="45dp"
-                                android:layout_height="45dp"
-                                android:padding="10dp"
-                                android:layout_marginHorizontal="10dp"
-                                android:background="@drawable/bg_genre"
-                                android:backgroundTint="@color/colorgenre"
-                                android:src="@drawable/gr_horror"/>
-                            <ImageView
-                                android:id="@+id/iv_scifi"
-                                android:layout_width="45dp"
-                                android:layout_height="45dp"
-                                android:padding="10dp"
-                                android:layout_marginHorizontal="10dp"
-                                android:background="@drawable/bg_genre"
-                                android:backgroundTint="@color/colorgenre"
-                                android:src="@drawable/gr_scifi"/>
-                        </LinearLayout>
-                    </HorizontalScrollView>
-                <!--</ScrollView>-->
-            </android.support.v7.widget.CardView>
-
-            //Recent Update
-            <android.support.v7.widget.CardView
-                android:layout_marginTop="13dp"
-                android:layout_marginBottom="-15dp"
-                android:layout_marginHorizontal="2dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="8dp">
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="5dp"
-                        android:paddingLeft="10dp"
-                        android:paddingBottom="5dp"
-                        android:textColor="#fff"
-                        android:text="Recent Update"
-                        android:textSize="18sp"
-                        android:background="@color/colorUpdate"
-                        android:layout_marginBottom="2dp"
-                        />
+                    android:paddingTop="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingBottom="5dp"
+                    android:textColor="#fff"
+                    android:text="Recent Update"
+                    android:textSize="18sp"
+                    android:background="@color/colorUpdate"
+                    android:layout_marginBottom="2dp"
+                    />
 
-                          <android.support.v7.widget.RecyclerView
-                            android:id="@+id/recyclerview_novel"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="5dp"
-                            android:padding="5dp"/>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rc_novelRilis"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"/>
+
+                <!--footer-->
+                <View
+                    android:background="@color/colorView"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"/>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
 
 
-                    //footer
-                    <View
-                        android:background="@color/colorView"
-                        android:layout_marginVertical="8dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"/>
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-        </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+</ScrollView>

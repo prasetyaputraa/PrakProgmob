@@ -1,10 +1,12 @@
-package com.example.fx504.praktikum;
+package com.example.fx504.praktikum.activitys;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.fx504.praktikum.R;
 
 public class FullScreenActivity extends AppCompatActivity {
 

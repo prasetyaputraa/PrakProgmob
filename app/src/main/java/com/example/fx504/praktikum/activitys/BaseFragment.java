@@ -1,4 +1,4 @@
-package com.example.fx504.praktikum;
+package com.example.fx504.praktikum.activitys;
 
 import android.support.v4.app.Fragment;
 

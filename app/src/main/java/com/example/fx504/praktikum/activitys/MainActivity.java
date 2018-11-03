@@ -1,4 +1,4 @@
-package com.example.fx504.praktikum;
+package com.example.fx504.praktikum.activitys;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -7,9 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.fx504.praktikum.fragment.FragHome;
-import com.example.fx504.praktikum.fragment.FragmentFavorites;
+import com.example.fx504.praktikum.R;
 import com.example.fx504.praktikum.fragment.FragmentHome;
+import com.example.fx504.praktikum.fragment.FragmentFavorites;
 import com.example.fx504.praktikum.fragment.FragmentProfile;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn_navView = findViewById(R.id.btn_navView);
         btn_navView.setOnNavigationItemSelectedListener(navListener);
-        fragment = new FragHome();
+        fragment = new FragmentHome();
         getSupportFragmentManager().beginTransaction().replace(R.id.frag_layout, fragment).commit();
     }
 
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                      fragment = null;
                     switch (menuItem.getItemId()){
                         case R.id.nav_home:
-                            fragment = new FragHome();
+                            fragment = new FragmentHome();
                             break;
                         case R.id.nav_fav:
                             fragment = new FragmentFavorites();
