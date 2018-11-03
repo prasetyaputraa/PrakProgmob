@@ -66,7 +66,7 @@ public class FragmentHome extends Fragment {
         vf_novel.setInAnimation(getContext(), android.R.anim.slide_in_left);
         vf_novel.setOutAnimation(getContext(), android.R.anim.slide_out_right);
     }
-    
+
     public void setFav(View v){
         RecyclerView recyclerView;
         NovelViewAdapter novelAdapter;
