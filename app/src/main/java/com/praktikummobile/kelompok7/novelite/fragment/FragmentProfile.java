@@ -1,4 +1,4 @@
-package com.example.fx504.praktikum.fragment;
+package com.praktikummobile.kelompok7.novelite.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +11,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.fx504.praktikum.LoginActivity;
-import com.example.fx504.praktikum.R;
-import com.example.fx504.praktikum.SharePref;
+import com.praktikummobile.kelompok7.novelite.LoginActivity;
+import com.praktikummobile.kelompok7.novelite.R;
+import com.praktikummobile.kelompok7.novelite.SharePref;
 
 public class FragmentProfile extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.example.fx504.praktikum;
+package com.praktikummobile.kelompok7.novelite;
 
 import org.junit.Test;
 

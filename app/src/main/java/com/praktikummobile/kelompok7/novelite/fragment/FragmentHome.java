@@ -1,10 +1,9 @@
-package com.example.fx504.praktikum.fragment;
+package com.praktikummobile.kelompok7.novelite.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,9 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import com.example.fx504.praktikum.Novel;
-import com.example.fx504.praktikum.R;
-import com.example.fx504.praktikum.RecyclerViewAdapter;
+import com.praktikummobile.kelompok7.novelite.Novel;
+import com.praktikummobile.kelompok7.novelite.R;
+import com.praktikummobile.kelompok7.novelite.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

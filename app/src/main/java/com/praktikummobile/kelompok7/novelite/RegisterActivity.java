@@ -1,4 +1,4 @@
-package com.example.fx504.praktikum;
+package com.praktikummobile.kelompok7.novelite;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -31,8 +31,6 @@ public class RegisterActivity extends AppCompatActivity {
         et_phone    = findViewById(R.id.et_phone);
         et_email    = findViewById(R.id.et_email);
         btn_submit  = findViewById(R.id.btn_submit);
-
-
 
 
         btn_submit.setOnClickListener(new View.OnClickListener() {

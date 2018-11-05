@@ -1,6 +1,5 @@
-package com.example.fx504.praktikum;
+package com.praktikummobile.kelompok7.novelite;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;

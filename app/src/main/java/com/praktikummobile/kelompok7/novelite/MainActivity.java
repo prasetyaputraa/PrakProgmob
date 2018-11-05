@@ -1,4 +1,4 @@
-package com.example.fx504.praktikum;
+package com.praktikummobile.kelompok7.novelite;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -7,9 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.fx504.praktikum.fragment.FragmentFavorites;
-import com.example.fx504.praktikum.fragment.FragmentHome;
-import com.example.fx504.praktikum.fragment.FragmentProfile;
+import com.praktikummobile.kelompok7.novelite.fragment.FragmentFavorites;
+import com.praktikummobile.kelompok7.novelite.fragment.FragmentHome;
+import com.praktikummobile.kelompok7.novelite.fragment.FragmentProfile;
 
 public class MainActivity extends AppCompatActivity {
 
