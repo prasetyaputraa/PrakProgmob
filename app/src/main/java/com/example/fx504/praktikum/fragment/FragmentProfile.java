@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.fx504.praktikum.activitys.LoginActivity;
+import com.example.fx504.praktikum.activities.LoginActivity;
 import com.example.fx504.praktikum.R;
 import com.example.fx504.praktikum.model.SharePref;
 

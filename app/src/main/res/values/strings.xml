@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">Praktikum</string>
+    <string name="app_name">NovelLite</string>
+    
+    <string-array name="genre_list">
+        <item>Action</item>
+        <item>Comedy</item>
+        <item>Fantasy</item>
+        <item>History</item>
+        <item>Horror</item>
+        <item>Romance</item>
+        <item>Sci Fi</item>
+        <item>Sport</item>
+    </string-array>
 </resources>

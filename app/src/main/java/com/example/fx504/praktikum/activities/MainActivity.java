@@ -1,4 +1,4 @@
-package com.example.fx504.praktikum.activitys;
+package com.example.fx504.praktikum.activities;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;

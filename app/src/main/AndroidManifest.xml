@@ -18,11 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activitys.RegisterActivity" />
-        <activity android:name=".activitys.LoginActivity" />
-        <activity android:name=".activitys.MainActivity" />
-        <activity android:name=".activitys.FullScreenActivity" />
-        <activity android:name=".ReadNovelActivity"></activity>
+        <activity android:name=".activities.RegisterActivity" />
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.FullScreenActivity" />
+        <activity android:name=".activities.ReadNovelActivity" />
+        <activity android:name=".activities.UpdateNovelActivity"></activity>
     </application>
 
 </manifest>

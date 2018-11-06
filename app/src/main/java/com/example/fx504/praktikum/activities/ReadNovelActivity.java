@@ -1,15 +1,22 @@
-package com.example.fx504.praktikum;
+package com.example.fx504.praktikum.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.example.fx504.praktikum.R;
 
 public class ReadNovelActivity extends AppCompatActivity {
 
     ImageView iv_NovelCover;
     TextView tv_NovelTitle, tv_NovelGenre, tv_NovelRelease,tv_NovelDecs;
 
+    Button btn_setFav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +29,8 @@ public class ReadNovelActivity extends AppCompatActivity {
         tv_NovelRelease = findViewById(R.id.tv_Novelrelease);
         tv_NovelDecs    = findViewById(R.id.tv_NovelDesc);
 
+        btn_setFav      = findViewById(R.id.btn_setFav);
+
         Bundle bundle = getIntent().getExtras();
         int novel_cover = bundle.getInt("novel_cover");
         String novel_title = getIntent().getStringExtra("novel_title");
@@ -32,6 +41,14 @@ public class ReadNovelActivity extends AppCompatActivity {
         tv_NovelTitle.setText(novel_title);
         tv_NovelGenre.setText(novel_genre);
         tv_NovelDecs.setText(novel_desc);
+
+        btn_setFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ReadNovelActivity.this, UpdateNovelActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

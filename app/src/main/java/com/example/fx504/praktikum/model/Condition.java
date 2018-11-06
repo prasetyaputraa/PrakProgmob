@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.example.fx504.praktikum.activitys.FullScreenActivity;
-import com.example.fx504.praktikum.activitys.MainActivity;
+import com.example.fx504.praktikum.activities.FullScreenActivity;
+import com.example.fx504.praktikum.activities.MainActivity;
 
 public class Condition extends Activity {
 
