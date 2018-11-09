@@ -5,8 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.FullScreenActivity"
-    android:background="@drawable/acid">
+    android:background="@drawable/background">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="111dp"
+        android:paddingHorizontal="10dp"
+        android:src="@drawable/logo" />
     <Button
         android:id="@+id/btn_login"
         android:layout_width="140dp"
@@ -19,7 +28,7 @@
         android:paddingVertical="10dp"
         android:text="LOG IN"
         android:textColor="#fff"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/btn_signup"

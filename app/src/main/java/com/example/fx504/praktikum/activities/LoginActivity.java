@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fx504.praktikum.R;
@@ -19,8 +20,9 @@ public class LoginActivity extends AppCompatActivity {
     EditText et_username;
     EditText et_password;
     Button btn_login;
-    Button btn_register;
     SharePref sharePref;
+
+    TextView tv_signUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +35,10 @@ public class LoginActivity extends AppCompatActivity {
         et_password  = findViewById(R.id.et_password);
 
         btn_login    = findViewById(R.id.btn_login);
-        btn_register = findViewById(R.id.btn_register);
+        tv_signUp    = findViewById(R.id.tv_signUp);
 
         setBtn_login();
-        setBtn_register();
+        setTv_signUp();
 
     }
 
@@ -63,8 +65,8 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void setBtn_register(){
-        btn_register.setOnClickListener(new View.OnClickListener() {
+    public void setTv_signUp(){
+        tv_signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);

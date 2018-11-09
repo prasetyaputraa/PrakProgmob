@@ -1,7 +1,9 @@
 package com.example.fx504.praktikum.fragment;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -16,12 +18,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fx504.praktikum.activities.LoginActivity;
 import com.example.fx504.praktikum.R;
 import com.example.fx504.praktikum.model.SharePref;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -42,7 +46,8 @@ public class FragmentProfile extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View frameView = inflater.inflate(R.layout.fragment_profile,container,false);
 
         sharePref = new SharePref(getActivity());
