@@ -64,7 +64,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="15dp"
         android:inputType="number"
-        android:hint="Password"
+        android:hint="Phone Number"
         />
 
     <EditText

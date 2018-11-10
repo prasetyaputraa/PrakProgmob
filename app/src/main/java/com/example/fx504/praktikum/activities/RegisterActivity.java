@@ -66,12 +66,11 @@ public class RegisterActivity extends AppCompatActivity {
                 && !phone_number.equals("") && !email.equals("")
                 && !username.equals("admin") && !password.equals("admin")){
 
-//
             apiService.CreateMember(username,password,email,phone_number)
                     .enqueue(new Callback<ResponseApi>() {
                         @Override
                         public void onResponse(Call<ResponseApi> call, Response<ResponseApi> response) {
-                            sharePref.setData(username,password,phone_number,email,0);
+//                            sharePref.setData(username,password,phone_number,email,0);
                             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                             startActivity(intent);
                         }

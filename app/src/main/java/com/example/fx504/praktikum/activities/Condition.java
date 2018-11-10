@@ -47,17 +47,18 @@ public class Condition extends Activity {
             @Override
             public void run() {
 
-                int myVal = sharePref.getDataInt(SharePref.KEY_VALUE, 0);
-                Log.d("InputVal","Value Condition :"+myVal);
+                String token = sharePref.getDataString(SharePref.KEY_TOKEN);
+                Log.d("InputVal","Value Condition :"+token);
                 Intent intent;
-                if (myVal==1){
+                if (token.equals("")){
 
-                    intent = new Intent(Condition.this, MainActivity.class);
+                    intent = new Intent(Condition.this, FullScreenActivity.class);
                     startActivity(intent);
 
                 }else {
-                    intent = new Intent(Condition.this, FullScreenActivity.class);
+                    intent = new Intent(Condition.this, MainActivity.class);
                     startActivity(intent);
+
                 }
                 ///jeda selesai flashscreen
                 this.finish();
