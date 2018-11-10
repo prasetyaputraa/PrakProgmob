@@ -9,10 +9,19 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.fx504.praktikum.R;
+import com.example.fx504.praktikum.api.APIClient;
+import com.example.fx504.praktikum.api.APIService;
+import com.example.fx504.praktikum.model.ResponseApi;
 import com.example.fx504.praktikum.model.SharePref;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
 
+
+    APIService apiService;
 
     EditText et_username;
     EditText et_password;
@@ -27,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        apiService = APIClient.getService();
 
         et_username = findViewById(R.id.et_username);
         et_password = findViewById(R.id.et_password);
@@ -40,24 +50,41 @@ public class RegisterActivity extends AppCompatActivity {
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String username     = et_username.getText().toString();
-                final String password     = et_password.getText().toString();
-                final String phone_number = et_phone.getText().toString();
-                final String email        = et_email.getText().toString();
-                if (!username.equals("") && !password.equals("")
-                        && !phone_number.equals("") && !email.equals("")){
-                    sharePref.setDataString(SharePref.KEY_NAME, ""+ username);
-                    sharePref.setDataString(SharePref.KEY_PASS,  ""+password);
-                    sharePref.setDataString(SharePref.KEY_PHONE, ""+ phone_number);
-                    sharePref.setDataString(SharePref.KEY_EMAIL, ""+email);
-                    sharePref.setDataInt(SharePref.KEY_VALUE,1);
-                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                }else {
-                    Toast.makeText(RegisterActivity.this, "Input Data", Toast.LENGTH_SHORT).show();
-                }
+                addMember();
             }
         });
 
     }
+
+    public void addMember(){
+        final String username     = et_username.getText().toString();
+        final String password     = et_password.getText().toString();
+        final String phone_number = et_phone.getText().toString();
+        final String email        = et_email.getText().toString();
+
+        if (!username.equals("") && !password.equals("")
+                && !phone_number.equals("") && !email.equals("")
+                && !username.equals("admin") && !password.equals("admin")){
+
+//
+            apiService.CreateMember(username,password,email,phone_number)
+                    .enqueue(new Callback<ResponseApi>() {
+                        @Override
+                        public void onResponse(Call<ResponseApi> call, Response<ResponseApi> response) {
+                            sharePref.setData(username,password,phone_number,email,0);
+                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseApi> call, Throwable t) {
+                            Toast.makeText(RegisterActivity.this, "Gagal Menyimpan",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }else {
+            Toast.makeText(RegisterActivity.this, "Input Data", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }
