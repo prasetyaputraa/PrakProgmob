@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.fx504.praktikum.activities.ReadNovelActivity;
+import com.example.fx504.praktikum.activities.InfoNovelActivity;
 import com.example.fx504.praktikum.model.Novel;
 import com.example.fx504.praktikum.R;
 
@@ -41,7 +41,7 @@ public class NovelViewAdapter extends RecyclerView.Adapter<NovelViewAdapter.MyVi
             public void onClick(View v) {
                 Toast.makeText(context, "Line ("+String.valueOf(myViewHolder.getAdapterPosition())+")",
                         Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(context, ReadNovelActivity.class);
+                Intent intent = new Intent(context, InfoNovelActivity.class);
                 intent.putExtra("novel_cover",novelList.get(myViewHolder.getAdapterPosition()).getThubnail());
                 intent.putExtra("novel_title",novelList.get(myViewHolder.getAdapterPosition()).getTitle());
                 intent.putExtra("novel_genre",novelList.get(myViewHolder.getAdapterPosition()).getGenre());

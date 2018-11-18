@@ -4,12 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.example.fx504.praktikum.admin.HomeAdmin;
 import com.example.fx504.praktikum.R;
 import com.example.fx504.praktikum.model.SharePref;
 
@@ -46,18 +46,27 @@ public class Condition extends Activity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-
                 String token = sharePref.getDataString(SharePref.KEY_TOKEN);
-                Log.d("InputVal","Value Condition :"+token);
                 Intent intent;
-                if (token.equals("")){
 
+
+
+                token="asfasfjaf";
+                // Checking already login or not
+                if (token.equals("")){
                     intent = new Intent(Condition.this, FullScreenActivity.class);
                     startActivity(intent);
 
                 }else {
-                    intent = new Intent(Condition.this, MainActivity.class);
+                    //Checking member or admin
+                    int status = sharePref.getDataInt(SharePref.KEY_STATUS);
+                    if (status==1){
+                        intent = new Intent(Condition.this, HomeAdmin.class);
+                    }else {
+                        intent = new Intent(Condition.this, MainActivity.class);
+                    }
                     startActivity(intent);
+
 
                 }
                 ///jeda selesai flashscreen

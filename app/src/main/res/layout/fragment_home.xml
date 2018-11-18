@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -12,7 +12,7 @@
         <ViewFlipper
             android:id="@+id/vf_novel"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="200dp"
             android:background="@drawable/cat_eye">
         </ViewFlipper>
 
@@ -51,24 +51,92 @@
                 android:orientation="horizontal"/>
         </LinearLayout>
 
-        <!--Genre-->
-
         <LinearLayout
-            android:layout_marginTop="13dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/colorPrimary">
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rc_genre"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#fff"
-                android:orientation="horizontal"/>
-        </LinearLayout>
+            android:layout_height="110dp"
+            android:weightSum="4"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:padding="15dp"
+                    android:src="@drawable/calendar1"
+                    android:background="@drawable/bg_profile"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="All Update"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:padding="10dp"
+                    android:src="@drawable/list"
+                    android:background="@drawable/bg_profile"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="Genre "/>
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:padding="10dp"
+                    android:src="@drawable/books"
+                    android:background="@drawable/bg_profile"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="Finish "/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:src="@drawable/notebook"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:padding="13dp"
+                    android:background="@drawable/bg_profile"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="Favorite"/>
+            </LinearLayout>
+        </LinearLayout>
         <!--Update Novel-->
 
         <android.support.v7.widget.CardView
@@ -77,11 +145,11 @@
             android:layout_marginRight="2dp"
             android:layout_marginLeft="2dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:cardCornerRadius="8dp">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="420dp"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="match_parent"
@@ -95,25 +163,13 @@
                     android:background="@color/colorUpdate"
                     android:layout_marginBottom="2dp"
                     />
-
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/rc_novelRilis"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:padding="5dp"/>
-
-                <!--footer-->
-                <View
-                    android:background="@color/colorView"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"/>
-
             </LinearLayout>
         </android.support.v7.widget.CardView>
-
-
     </LinearLayout>
-</ScrollView>
+</android.support.v4.widget.NestedScrollView>
