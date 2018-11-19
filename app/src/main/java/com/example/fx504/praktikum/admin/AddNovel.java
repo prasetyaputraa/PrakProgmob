@@ -12,6 +12,7 @@ import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,12 +24,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fx504.praktikum.R;
+import com.example.fx504.praktikum.api.APIService;
+import com.example.fx504.praktikum.model.ResponseAdd;
 import com.github.barteksc.pdfviewer.PDFView;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class AddNovel extends AppCompatActivity {
+
+    APIService apiService;
 
     Intent intent;
 
@@ -183,10 +192,25 @@ public class AddNovel extends AppCompatActivity {
         btn_saveNovel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String novel_title = et_novelTitle.getText().toString();
-                String novel_synompis = et_novelDesc.getText().toString();
-                Toast.makeText(AddNovel.this, ""+ Genre, Toast.LENGTH_SHORT).show();
-                pdf_view.fromUri(PDF).load();
+                final String novel_title = et_novelTitle.getText().toString();
+                final String novel_synopsis = et_novelDesc.getText().toString();
+                if (!novel_title.equals("") && !novel_synopsis.equals("") && PDF!=null && !Genre.equals("")){
+                    apiService.AddNovel(novel_title,Genre,novel_synopsis,PDF.getPath())
+                            .enqueue(new Callback<ResponseAdd>() {
+                                @Override
+                                public void onResponse(Call<ResponseAdd> call, Response<ResponseAdd> response) {
+                                    if (response.isSuccessful()){
+                                        Toast.makeText(AddNovel.this, "Data Suskses tersimpan", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                                @Override
+                                public void onFailure(Call<ResponseAdd> call, Throwable t) {
+                                    Toast.makeText(AddNovel.this, "Terjadi kesalahan", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }else {
+                    Toast.makeText(AddNovel.this, "Masukan data", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
