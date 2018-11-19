@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "918670988334",
+    "firebase_url": "https://notification-741e1.firebaseio.com",
+    "project_id": "notification-741e1",
+    "storage_bucket": "notification-741e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:918670988334:android:8e5a1658c6300c85",
+        "android_client_info": {
+          "package_name": "com.example.fx504.praktikum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "918670988334-afcgmpsi6sjisv2qh8o3r9jd3b0113ef.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fx504.praktikum",
+            "certificate_hash": "4a887bc197550b3ab4f55e23116557d6a5993439"
+          }
+        },
+        {
+          "client_id": "918670988334-7d9af61b6u1gulf485spqbsgmp61qo4v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk5CTaYFloNXcyXy_Ie-Gvw7p9VkBJuwc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "918670988334-7d9af61b6u1gulf485spqbsgmp61qo4v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

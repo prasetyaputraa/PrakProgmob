@@ -49,9 +49,7 @@ public class Condition extends Activity {
                 String token = sharePref.getDataString(SharePref.KEY_TOKEN);
                 Intent intent;
 
-
-
-                token="asfasfjaf";
+                
                 // Checking already login or not
                 if (token.equals("")){
                     intent = new Intent(Condition.this, FullScreenActivity.class);

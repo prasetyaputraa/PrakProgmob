@@ -87,6 +87,8 @@ public class LoginActivity extends AppCompatActivity {
                     setIntentStatus(status);
                 }else {
                     Toast.makeText(LoginActivity.this, "Input Salah", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,
+                            sharePref.getDataString(SharePref.KEY_PHONE), Toast.LENGTH_SHORT).show();
                 }
 
             }

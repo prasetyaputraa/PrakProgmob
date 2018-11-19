@@ -1,5 +1,6 @@
 package com.example.fx504.praktikum.api;
 
+import com.example.fx504.praktikum.model.ResponseAdd;
 import com.example.fx504.praktikum.model.ResponseApi;
 import com.example.fx504.praktikum.model.ResponseLogin;
 
@@ -22,5 +23,12 @@ public interface APIService {
     @POST("login")
     Call<ResponseLogin>LoginUser(@Field("user_email") String user_email,
                                  @Field("user_pass") String user_pass);
+
+    @FormUrlEncoded
+    @POST("addNovel")
+    Call<ResponseAdd>AddNovel(@Field("novel_title") String novel_title,
+                              @Field("novel_genre") String novel_genre,
+                              @Field("novel_synopsis") String novel_synopsis,
+                              @Field("novel_story") String novel_story);
 
 }

@@ -3,11 +3,8 @@ package com.example.fx504.praktikum.admin;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.content.ContentResolver;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
@@ -15,26 +12,21 @@ import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fx504.praktikum.R;
-import com.example.fx504.praktikum.activities.NovelReadActivity;
-import com.example.fx504.praktikum.model.SharePref;
 import com.github.barteksc.pdfviewer.PDFView;
 
-import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.Objects;
 
 public class AddNovel extends AppCompatActivity {
 
@@ -47,22 +39,31 @@ public class AddNovel extends AppCompatActivity {
     Button btn_addStory;
     Button btn_saveNovel;
 
+    EditText et_novelTitle;
+    EditText et_novelDesc;
+
     PDFView pdf_view;
 
     static final int CODE_IMAGE = 1000;
     static final int CODE_PDF = 2000;
+
+    String Genre;
+    Uri PDF;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_noveladd);
 
-        iv_novelCover = findViewById(R.id.iv_novelCover);
-        btn_addStory  = findViewById(R.id.btn_addStory);
-        btn_saveNovel  = findViewById(R.id.btn_saveNovel);
-        tv_statusAdd  = findViewById(R.id.tv_statusAdd);
-//        pdf_view  = findViewById(R.id.pdf_view);
+        spin_genre     = findViewById(R.id.spin_genre);
+        pdf_view       = findViewById(R.id.pdf_view);
+        iv_novelCover  = findViewById(R.id.iv_novelCover);
+        tv_statusAdd   = findViewById(R.id.tv_statusAdd);
 
+        btn_addStory   = findViewById(R.id.btn_addStory);
+        btn_saveNovel  = findViewById(R.id.btn_saveNovel);
+        et_novelTitle  = findViewById(R.id.et_novelTitle);
+        et_novelDesc  = findViewById(R.id.et_novelDesc);
 
 
 
@@ -74,7 +75,6 @@ public class AddNovel extends AppCompatActivity {
 
     // Set Spinner genre item and max height
     public void setSpin_genre(){
-        spin_genre = findViewById(R.id.spin_genre);
         try {
             Field popup = Spinner.class.getDeclaredField("mPopup");
             popup.setAccessible(true);
@@ -88,18 +88,18 @@ public class AddNovel extends AppCompatActivity {
         catch (NoClassDefFoundError | ClassCastException | NoSuchFieldException | IllegalAccessException e) {
             // silently fail...
         }
-
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.genre_list,
                 android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin_genre.setAdapter(adapter);
+
         spin_genre.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String text = parent.getItemAtPosition(position).toString();
-                Toast.makeText(AddNovel.this, ""+text, Toast.LENGTH_SHORT).show();
-            }
+                String genre = parent.getItemAtPosition(position).toString();
+                getGenre(genre);
 
+            }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
@@ -163,10 +163,9 @@ public class AddNovel extends AppCompatActivity {
             if (requestCode == CODE_PDF){ 
                 intent = new Intent();
                 Uri pdfFoleder = data.getData();
-//                pdf_view.fromUri(pdfFoleder).load();
-                intent.putExtra("FileUri",Objects.requireNonNull(pdfFoleder).toString());
-                intent = new Intent(AddNovel.this, NovelReadActivity.class);
-                startActivity(intent);
+                getUriPDF(pdfFoleder);
+//
+
                 if (!data.equals("")){
                     tv_statusAdd.setText("Data Tersimpan");
                     tv_statusAdd.setTextColor(this.getResources().getColor(R.color.colorUpdate));
@@ -184,11 +183,22 @@ public class AddNovel extends AppCompatActivity {
         btn_saveNovel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AddNovel.this, NovelReadActivity.class);
-                startActivity(intent);
+                String novel_title = et_novelTitle.getText().toString();
+                String novel_synompis = et_novelDesc.getText().toString();
+                Toast.makeText(AddNovel.this, ""+ Genre, Toast.LENGTH_SHORT).show();
+                pdf_view.fromUri(PDF).load();
             }
         });
 
     }
+
+    private void getGenre(String genre){
+        Genre = genre;
+    }
+    private void getUriPDF(Uri uri){
+        PDF = uri;
+    }
+
+
 
 }

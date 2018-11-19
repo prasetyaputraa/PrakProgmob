@@ -1,5 +1,6 @@
 package com.example.fx504.praktikum.activities;
 
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -7,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fx504.praktikum.R;
 import com.example.fx504.praktikum.admin.AddNovel;
@@ -25,6 +27,7 @@ import retrofit2.http.Url;
 public class NovelReadActivity extends AppCompatActivity {
 
     PDFView pdfView;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +35,32 @@ public class NovelReadActivity extends AppCompatActivity {
         setContentView(R.layout.activity_novelread);
 
         pdfView = findViewById(R.id.pdf_View);
+        textView = findViewById(R.id.textView);
 
-//        pdfView.fromAsset("ijis03b.pdf").load();
+//        Intent intent = getIntent();
+//
+//        int data = intent.getIntExtra("Nilai",0);
+//        textView.setText(""+data);
 
-        setPdfView();
 
+//        Uri pdfFile = Uri.parse(getIntent().getStringExtra("pdfUri"));
+//        Toast.makeText(this, "Sukses", Toast.LENGTH_SHORT).show();
+//        pdfView.fromUri(pdfFile).load();
+
+//
+//        String image = getIntent().getExtras().getString("pdfUri");
+//        if(image!= null) {
+//            Uri imageUri=Uri.parse(image);
+//            pdfView.fromUri(imageUri).load();
+//        }
+//
+
+
+
+        pdfView.fromAsset("ijis03b.pdf").load();
+
+//        setPdfView();
+        Toast.makeText(this, "Hello world", Toast.LENGTH_SHORT).show();
 //        new RetrivePDF().execute("http://ancestralauthor.com/download/sample.pdf");
     }
 
@@ -45,12 +69,13 @@ public class NovelReadActivity extends AppCompatActivity {
         if (getIntent() != null){
             String viewType = getIntent().getStringExtra("ViewType");
             if (viewType != null || !TextUtils.isEmpty(null)){
-                Uri novel = (Uri) Objects.requireNonNull(getIntent().getExtras()).get("pdfUri");
-//                Uri pdfFile = Uri.parse(getIntent().getStringExtra("pdfUri"));
-
-
-                pdfView.fromUri(novel).load();
+//                Uri novel = (Uri) Objects.requireNonNull(getIntent().getExtras()).get("pdfUri");
+                Uri pdfFile = Uri.parse(getIntent().getStringExtra("pdfUri"));
+                Toast.makeText(this, "Sukses", Toast.LENGTH_SHORT).show();
+                pdfView.fromUri(pdfFile).load();
             }
+        }else {
+            Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
         }
    }
 

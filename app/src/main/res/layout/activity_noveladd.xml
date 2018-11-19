@@ -29,6 +29,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <EditText
+                    android:id="@+id/et_novelTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Novel Title"
@@ -73,6 +74,7 @@
         android:layout_marginHorizontal="15dp"
         android:orientation="vertical">
         <EditText
+            android:id="@+id/et_novelDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Description Novel"
@@ -106,9 +108,18 @@
             android:backgroundTint="@color/colorPrimary"
             android:layout_gravity="center"/>
     </LinearLayout>
+
+
     <TextView
         android:id="@+id/tv_statusAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"/>
+
+    <com.github.barteksc.pdfviewer.PDFView
+        android:id="@+id/pdf_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        />
 </LinearLayout>
