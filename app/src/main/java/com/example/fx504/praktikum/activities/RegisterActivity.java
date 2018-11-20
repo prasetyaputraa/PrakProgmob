@@ -44,9 +44,6 @@ public class RegisterActivity extends AppCompatActivity {
         et_email    = findViewById(R.id.et_email);
         btn_submit  = findViewById(R.id.btn_submit);
 
-
-
-
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
